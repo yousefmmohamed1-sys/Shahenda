@@ -3,108 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ليكي يا شيري</title>
+  <title>لـ شاهي ❤️</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@700&display=swap');
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-    }
-
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+    
+    * { box-sizing: border-box; }
+    
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #ff69b4 0%, #ff4fa3 100%);
-      min-height: 100vh;
-      padding: 30px 20px;
-    }
-
-    .page { width: 100%; max-width: 650px; margin: 0 auto; }
-
-    /* صفحة الباسورد */
-    #loginPage {
-      background: white;
-      border-radius: 25px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
-      margin-top: 100px;
-      border: 3px solid #ffd6e0;
-    }
-    #loginPage h1 { color: #e75480; font-size: 28px; margin-bottom: 15px; font-family: 'Tajawal'; }
-    input[type="password"] {
-      width: 100%; padding: 15px; border: 2px solid #ffd6e0;
-      border-radius: 15px; font-size: 18px; text-align: center;
-      font-family: 'Cairo', sans-serif; margin-bottom: 20px;
-    }
-    .btn {
-      background: linear-gradient(135deg, #e75480, #ff5c8d);
-      color: white; border: none; padding: 15px;
-      font-size: 18px; border-radius: 50px; cursor: pointer; width: 100%;
-      font-family: 'Cairo', sans-serif; font-weight: 700;
-      box-shadow: 0 5px 15px rgba(231, 84, 128, 0.4);
-    }
-    .error { color: #e75480; margin-top: 15px; font-weight: 700; display: none; }
-
-    /* الصفحة التانية */
-    #secondPage { display: none; text-align: center; color: white; }
-    #secondPage h1 { 
-      font-size: 42px; margin-bottom: 10px; font-weight: 900; 
-      font-family: 'Tajawal'; text-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-    .heart { font-size: 50px; margin-bottom: 15px; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
-    #secondPage .sub { font-size: 20px; margin-bottom: 35px; opacity: 0.95; }
-
-    .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-    .row {
-      display: flex;
-      gap: 25px;
-    }
-
-    .card {
-      background: #e75480;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      border-radius: 30px;
-      padding: 30px 20px;
-      cursor: pointer;
-      transition: 0.4s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      font-weight: 700;
+      text-align: center;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      min-height: 180px;
-      position: relative;
+      align-items: center;
       overflow: hidden;
-      border: 2px solid #ff8dc7;
     }
-    .card:hover { 
-      transform: translateY(-8px) scale(1.02); 
-      background: #d14770;
+    
+    .page {
+      display: none;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
     }
-
-    .card .num {
+    
+    .active { display: block; }
+    
+    h1 { font-size: 2.5em; margin-bottom: 20px; }
+    .sub { font-size: 1.2em; margin-bottom: 30px; }
+    
+    input {
+      padding: 12px;
+      border-radius: 15px;
+      border: none;
+      width: 80%;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 1.1em;
+      font-family: 'Cairo';
+    }
+    
+    .btn {
+      padding: 12px 30px;
+      border-radius: 25px;
+      border: none;
       background: white;
-      color: #e75480;
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 15px;
-      font-size: 22px;
-      font-weight: 900;
-      z-index: 2;
-      border: 3px solid #ff8dc7;
+      color: #764ba2;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+      font-family: 'Cairo';
+    }
+    
+    .btn:hover { transform: scale(1.05); }
+    
+    .heart {
+      font-size: 4em;
+      animation: beat 1s infinite;
+    }
+    
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    #errorMsg { color: #ffdddd; display: none; }
+    
+    .card {
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 20px;
+      margin: 15px 0;
+      cursor: pointer;
+    }
+    
+    /* القلوب الطايرة */
+    .floating-heart {
+      position: fixed;
+      font-size: 24px;
+      color: #ff5c8d;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+    }
+    
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الصفحة الاولى -->
+  <div class="page active" id="loginPage">
+    <h1>مفاجأة لـ شاهي ❤️</h1>
+    <p class="sub">دخلي الباسورد عشان تشوفي</p>
+    <input type="password" id="passwordInput" placeholder="الباسورد">
+    <br>
+    <button class="btn" onclick="checkPassword()">ادخلي</button>
+    <p id="errorMsg">الباسورد غلط 😢</p>
+  </div>
+
+  <!-- الصفحة التانية -->
+  <div class="page" id="secondPage">
+    <h1>عامله ايه يا شيري</h1>
+    <div class="heart">❤️</div>
+    
+    <!-- الزرار الجديد بتاع الموسيقى -->
+    <button class="btn" id="playBtn" onclick="playMusic()" style="margin-bottom: 25px; background: linear-gradient(135deg, #ff5c8d, #e75480); color: white;">اول حاجه دوسي هنا يا شاهي ❤️</button>
+
+    <p class="sub">ادخلي علي الكروت بالترتيب</p>
+    
+    <div class="card">الكارت الاول</div>
+    <div class="card">الكارت التاني</div>
+    <div class="card">الكارت التالت</div>
+  </div>
+
+  <!-- الاغنية -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('passwordInput').value;
+      const errorMsg = document.getElementById('errorMsg');
+      const loginPage = document.getElementById('loginPage');
+      const secondPage = document.getElementById('secondPage');
+
+      if (password === 'shlove') {
+        loginPage.style.display = 'none';
+        secondPage.style.display = 'block';
+        errorMsg.style.display = 'none';
+        startHearts();
+      } else {
+        errorMsg.style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+      }
     }
 
-    #cardBox2 .num {
+    function playMusic() {
+      const music = document.getElementById('bgMusic');
+      const playBtn = document.getElementById('playBtn');
+      
+      music.volume = 0.5;
+      music.muted = false;
+      music.play().then(() => {
+        playBtn.style.display = 'none'; // الزرار يختفي
+      }).catch(error => {
+        alert("دوسي تاني معلش ❤️");
+      });
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>    #cardBox2 .num {
       margin-top: -5px;
       margin-bottom: 20px;
     }
