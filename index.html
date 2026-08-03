@@ -207,6 +207,10 @@
   <div class="page" id="secondPage">
     <h1>عامله ايه يا شيري</h1>
     <div class="heart">❤️</div>
+    
+    <!-- الزرار الجديد -->
+    <button class="btn" id="playBtn" onclick="playMusic()" style="margin-bottom: 25px; background: linear-gradient(135deg, #ff5c8d, #e75480);">اول حاجه دوسي هنا يا شاهي ❤️</button>
+
     <p class="sub">ادخلي علي الكروت بالترتيب</p>
     
     <div class="cards">
@@ -256,7 +260,20 @@
 
   <!-- الاغنية -->
   <audio id="bgMusic" src="song.mp3" loop></audio>
-
+function playMusic() {
+  const music = document.getElementById('bgMusic');
+  const playBtn = document.getElementById('playBtn');
+  
+  music.volume = 0.5;
+  music.muted = false;
+  music.play().then(() => {
+    playBtn.style.display = 'none'; // الزرار هيختفي بعد ما تدوس
+    console.log("الاغنية اشتغلت");
+  }).catch(error => {
+    alert("دوسي تاني معلش ❤️");
+  
+  });
+}
   <script>
     let heartIntervals = [];
     let typingStarted1 = false;
@@ -280,14 +297,6 @@
     loginPage.style.display = 'none';
     secondPage.style.display = 'block';
     errorMsg.style.display = 'none';
-    
-    music.volume = 0.5;
-    music.muted = false;
-    
-    // نجرب نشغلها 3 مرات عشان المتصفح يوافق
-    music.play();
-    setTimeout(()=> music.play(), 100);
-    setTimeout(()=> music.play(), 300);
     
     startHearts();
   } else {
