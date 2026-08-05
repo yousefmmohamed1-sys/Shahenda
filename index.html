@@ -258,7 +258,7 @@
   </div>
 
   <!-- الاغنية -->
-  <audio id="bgMusic" src="mb3.song" loop></audio>
+  <audio id="bgMusic" src="song.mp3" loop></audio>
 
   <script>
     let heartIntervals = [];
@@ -273,23 +273,22 @@
     const message3 = `هنا بقا انا هقول كل الي محتاج اقولو شاهنده انتي مش حب يوم ولا يومين ولا حب فترات ولا حب مراهقه و الكلام ده انتي حب حياتي و مش الحب اني معجب بيكي او بشكلك انتي كده كده جميله بس انا بحبك انتي و فكرة انك مش متقبلاني انا بحاول اني اشيلها من دماغي و بحاول اقنع نفسي انك مش كده شاهنده انا محتاجك معايا و محتاجك جمبي طول الوقت مش عايزك تمشي عايزك معايا عايز كل ما احتاجك الاقيكي معايا و الاقيكي بتسمعيني و عايزك تحبيني زي ما بحبك و اقسم بالله انا اي صلاة بصليها بدعي انك تكوني من نصيبي و بدعيلك انتي نفسك و بقول يا رب احميها و احفظها و ارزقها و اعفيها من اي مرض و زي ما قدرنا اننا نكون مع بعض تلت سنين نقدر نكون مع بعض العمر كلو صدقيني انا مش محتاج حاجه من الدنيا غيرك و اخر حاجه عايز اقولهالك اني بحبك ❤️🌹`;
 
     function checkPassword() {
-      const password = document.getElementById('passwordInput').value;
-      const errorMsg = document.getElementById('errorMsg');
-      const loginPage = document.getElementById('loginPage');
-      const secondPage = document.getElementById('secondPage');
-      const music = document.getElementById('bgMusic');
+  const password = document.getElementById('passwordInput').value;
+  const errorMsg = document.getElementById('errorMsg');
+  const loginPage = document.getElementById('loginPage');
+  const secondPage = document.getElementById('secondPage');
+  const music = document.getElementById('bgMusic');
 
-      if (password === 'shlove') {
-        loginPage.style.display = 'none';
-        secondPage.style.display = 'block';
-        errorMsg.style.display = 'none';
-        music.play().catch(()=>{});
-        startHearts();
-      } else {
-        errorMsg.style.display = 'block';
-        document.getElementById('passwordInput').value = '';
-      }
-    }
+  if (password === 'shlove') {
+    loginPage.style.display = 'none';
+    secondPage.style.display = 'block';
+    errorMsg.style.display = 'none';
+    
+    // حاول تشغل الاغنية
+    music.play().then(() => {
+      console.log("الاغنية اشتغلت");
+    }).catch((error) => {
+      console.log("المتصفح منع
 
     function startHearts() {
       stopHearts();
